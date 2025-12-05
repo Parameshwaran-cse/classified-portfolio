@@ -2,9 +2,17 @@ import React, { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
 import TypewriterText from '../ui/TypewriterText';
+import useSound from '../../hooks/useSound';
+import terminalBeep from '../../assets/sounds/terminal-beep.mp3';
 
 const Hero = ({ accessGranted, setAccessGranted }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const playBeep = useSound(terminalBeep);
+
+  const handleAccess = () => {
+    playBeep();
+    setAccessGranted(true);
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -21,7 +29,7 @@ const Hero = ({ accessGranted, setAccessGranted }) => {
             className="relative cursor-pointer group"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={() => setAccessGranted(true)}
+            onClick={handleAccess}
           >
             <div className={`bg-[#1a1a1a] border-2 ${isHovered ? 'border-[#00ff41]' : 'border-[#ff0040]'} p-8 md:p-12 max-w-lg mx-auto transition-all duration-500 transform ${isHovered ? 'scale-105' : ''}`}>
               <div className="border-b border-[#ff0040]/50 pb-4 mb-6">

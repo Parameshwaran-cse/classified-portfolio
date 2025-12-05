@@ -11,6 +11,8 @@ import Projects from './components/sections/Projects';
 import Experience from './components/sections/Experience';
 import Contact from './components/sections/Contact';
 import './styles/glitch.css';
+import ScrollReveal from './components/ui/ScrollReveal';
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -30,14 +32,25 @@ function App() {
       <Navbar />
       <Hero accessGranted={accessGranted} setAccessGranted={setAccessGranted} />
       {accessGranted && (
-        <>
-          <About />
-          <Skills />
-          <Projects />
-          <Experience />
-          <Contact />
-        </>
-      )}
+  <>
+      <ScrollReveal>
+        <About />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <Skills />
+      </ScrollReveal>
+      <ScrollReveal delay={200}>
+        <Projects />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <Experience />
+      </ScrollReveal>
+      <ScrollReveal delay={200}>
+        <Contact />
+      </ScrollReveal>
+    </>
+  )}
+
     </div>
   );
 }

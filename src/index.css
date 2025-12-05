@@ -3,4 +3,5 @@
 @tailwind utilities;
 html, body {
   cursor: none; /* Hide default cursor */
+  scroll-behavior: smooth;
 }
