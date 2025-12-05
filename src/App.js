@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import HackerCursor from './components/ui/HackerCursor';
 import { Canvas } from '@react-three/fiber';
 import Navbar from './components/ui/Navbar';
 import ScanlineOverlay from './components/ui/ScanlineOverlay';
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <div className="bg-[#0a0a0a] min-h-screen text-[#c0c0c0] overflow-x-hidden">
+      <HackerCursor />
       <ScanlineOverlay />
       <Navbar />
       <Hero accessGranted={accessGranted} setAccessGranted={setAccessGranted} />
